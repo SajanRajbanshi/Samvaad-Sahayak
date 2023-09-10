@@ -1,0 +1,23 @@
+.imgtotext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aquamarine; */
+    border: 0.12rem;
+}
+
+.imagelabel{
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.convertedimg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem;
+}
+
