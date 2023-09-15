@@ -2,7 +2,10 @@
   "name": "samvaad-sahayak-master",
   "version": "1.0.0",
   "description": "",
+<<<<<<< HEAD
   "type": "module",
+=======
+>>>>>>> 1f48b223e5659ac62bd4476514f28d89a3b0b95c
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
