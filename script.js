@@ -1,39 +1,21 @@
-import { createWorker } from 'tesseract.js';
-<<<<<<< HEAD
-// Convert 1st import statement to
-
-// import { createworks } from required("tesseract")
-const fs = require('fs');
-const pdf = require('pdf-parse');
-
-async function recognizeText() {
-    let imgPath = "./image/test_image.png"
-=======
-const fs = require('fs');
-const pdf = require('pdf-parse');
-
-async function recognizeText(imgPath) {
-
->>>>>>> 1f48b223e5659ac62bd4476514f28d89a3b0b95c
-    const worker = await createWorker({
-        logger: m => console.log(m)
-    });
+// import { createWorker } from "tesseract.js";
+// import pdf from 'pdf-parse';
+// import fs  from 'fs';
+// export async function recognizeText(imgPath) {
+//     const worker = await createWorker({
+//         logger: m => console.log(m)
+//     });
 
 
-    await worker.loadLanguage('eng');
-    await worker.initialize('eng');
-    const { data: { text } } = await worker.recognize(imgPath);
-    await worker.terminate();
-    console.log(text);
-    return text;
-}
+//     await worker.loadLanguage('eng');
+//     await worker.initialize('eng');
+//     const { data: { text } } = await worker.recognize(imgPath);
+//     await worker.terminate();
+//     console.log(text);
+//     return text;
+// }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1f48b223e5659ac62bd4476514f28d89a3b0b95c
-async function translateText(text, targetLang) {
+export async function translateText(text, targetLang) {
     const encodeText=encodeURIComponent(text);
     const response = await fetch("https://lingva.garudalinux.org/api/v1/auto/" + targetLang + "/" + encodeText)
     const obj = await response.json();
@@ -41,7 +23,7 @@ async function translateText(text, targetLang) {
     return obj['translation']
 }
 
-async function extractTextFromPDF(pdfPath) {
+export async function extractTextFromPDF(pdfPath) {
     const dataBuffer = fs.readFileSync(pdfPath);
     const data = await pdf(dataBuffer);
   
