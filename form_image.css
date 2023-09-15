@@ -21,3 +21,32 @@
     margin: 5rem;
 }
 
+.buttonSubmit{
+    background-color: #ba61b8;
+    color: white;
+    width: 120px;
+    padding: 10px 18px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-left: 30px;
+    margin-right: 70px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.buttondiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.dropdowndiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,46 +11,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <title>Document</title>
 </head>
+
 <body>
     <header class="header">
         <div class="logo">
-            <img class="imlogo" src="/images/lotus (1).png" alt="">
-          <a href="index.html">Samvaad Sahayak</a>
+            <!-- <img class="imlogo" src="/images/lotus (1).png" alt=""> -->
+            <a href="index.html">Samvaad Sahayak</a>
         </div>
-    
-       
-    
-      </header>
-      <div class="container">
+
+
+
+    </header>
+    <div class="container">
         <nav>
-          <div class="side_navbar">
-    
-            <div class="links">
-              <span>You want to...</span>
-              <a href="form_image.html" class="active">Image to Text</a>
-              <a href="form_text.html" class="active">Text to Text</a>
-              <a href="" class="active">Document to Text</a>
-              <!-- <a href="homepage.html" class="active">Image to Text</a> -->
+            <div class="side_navbar">
+
+                <div class="links">
+                    <span>You want to...</span>
+                    <a href="form_image.html" class="active">Image to Text</a>
+                    <a href="form_text.html" class="active">Text to Text</a>
+                    <a href="form_doc.html" class="active">Document to Text</a>
+                    <!-- <a href="homepage.html" class="active">Image to Text</a> -->
+                </div>
             </div>
-          </div>
-          <div class="nav"></div>
+            <div class="nav"></div>
         </nav>
-    
+
         <div class="main-body">
             <div class="imgtotext">
-                <label for="" class="imagelabel">
+                <label class="imagelabel">
                     <h1>Enter your text here</h1>
                 </label>
-                <p></p>
-                <input type="text" placeholder="Enter your text here" />
+                <input type="text" placeholder="enter your text" />
             </div>
-    
-    
-          <div class="history_lists">
-             
+            <div class="buttondiv">
+              <button>
+                <input type="button" value="submit" class="buttonSubmit" />
+              </button>
             </div>
-    
+
+            <div class="dropdowndiv">
+              <label class="imagelabel">Enter the language in which you want your image text converted</label>
+              <div>
+                <select>
+                    <option value='Hindi'>Hindi</option>
+                    <option value='Gujarati'>Gujarati</option>
+                    <option value='Marathi'>Marathi</option>
+                    <option value='Bengali'>Bengali</option>
+                    <option value='Tamil'>Tamil</option>
+                    <option value='Telugu'>Telugu</option>
+                </select>
+              </div>
+            <!-- </div>
+            <div class="hi">
+                <input type="button " value="submit ">
+            </div> -->
+
+            <div class="history_lists ">
+
+            </div>
+
         </div>
-      </div>
+    </div>
 </body>
+
 </html>
