@@ -18,20 +18,15 @@
             <!-- <img class="imlogo" src="/images/lotus (1).png" alt=""> -->
             <a href="index.html">Samvaad Sahayak</a>
         </div>
-
-
-
     </header>
     <div class="container">
         <nav>
             <div class="side_navbar">
-
                 <div class="links">
                     <span>You want to...</span>
                     <a href="form_image.html" class="active">Image to Text</a>
                     <a href="form_text.html" class="active">Text to Text</a>
                     <a href="form_doc.html" class="active">Document to Text</a>
-                    <!-- <a href="homepage.html" class="active">Image to Text</a> -->
                 </div>
             </div>
             <div class="nav"></div>
@@ -40,39 +35,105 @@
         <div class="main-body">
             <div class="imgtotext">
                 <label class="imagelabel">
-                    <h1>Enter you doc here</h1>
+                    <h1>Upload a PDF Document</h1>
                 </label>
-                <input type="text" placeholder="enter your text" />
+                <!-- Change the input type to file -->
+                <input type="file" accept=".pdf" id="pdfFileInput" />
             </div>
             <div class="buttondiv">
-              <button>
-                <input type="button" value="submit" class="buttonSubmit" />
-              </button>
+                <!-- Add a button to trigger text extraction -->
+                <button id="extractButton">
+                    Translate Text
+                </button>
             </div>
 
             <div class="dropdowndiv">
-              <label class="imagelabel">Enter the language in which you want your image text converted</label>
-              <div>
-                <select>
-                    <option value='Hindi'>Hindi</option>
-                    <option value='Gujarati'>Gujarati</option>
-                    <option value='Marathi'>Marathi</option>
-                    <option value='Bengali'>Bengali</option>
-                    <option value='Tamil'>Tamil</option>
-                    <option value='Telugu'>Telugu</option>
-                </select>
-              </div>
-            <!-- </div>
-            <div class="hi">
-                <input type="button " value="submit ">
-            </div> -->
-
-            <div class="history_lists ">
-
+                <label class="imagelabel">Enter the language in which you want your text</label>
+                <div>
+                    <select id="languageSelect">
+                        <option value='hi'>Hindi</option>
+                        <option value='gu'>Gujarati</option>
+                        <option value='mr'>Marathi</option>
+                        <option value='bn'>Bengali</option>
+                        <option value='ta'>Tamil</option>
+                        <option value='te'>Telugu</option>
+                    </select>
+                </div>
             </div>
+
+            <!-- TODO: set width of below two div -->
+            <div class="convertedimg">
+                <h2>Extracted Text:</h2>
+                <p id="extracted-text" style="width: 600px;"></p>
+            </div>
+            <div class="convertedimg">
+                <h2>Translated Text:</h2>
+                <p id="translated-text" style="width: 600px;"></p>
+            </div>
+
+            <div class="history_lists"></div>
 
         </div>
     </div>
+
+    <!-- Include PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script type="module" src="script.js"></script>
+    <!-- Your JavaScript code for handling PDF file and text extraction -->
+    <script type="module">
+        import {translateText} from './script.js';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const pdfFileInput = document.getElementById('pdfFileInput');
+            const extractButton = document.getElementById('extractButton');
+            const languageSelect = document.getElementById('languageSelect');
+            const outputText = document.getElementById('extracted-text');
+            const translatedText = document.getElementById('translated-text');
+
+            extractButton.addEventListener('click', function () {
+                translatedText.textContent = "Initializing...";
+                outputText.textContent = "Loading...";
+                const file = pdfFileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (event) {
+                        const arrayBuffer = event.target.result;
+                        extractTextFromPDF(arrayBuffer);
+                    };
+
+                    reader.readAsArrayBuffer(file);
+                }
+            });
+
+            function extractTextFromPDF(arrayBuffer) {
+                pdfjsLib.getDocument({ data: arrayBuffer }).promise.then(function (pdfDoc) {
+                    let text = '';
+
+                    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+                        pdfDoc.getPage(pageNum).then(function (page) {
+                            return page.getTextContent();
+                        }).then(function (content) {
+                            content.items.forEach(function (item) {
+                                text += item.str + ' ';
+                            });
+
+                            if (pageNum === pdfDoc.numPages) {
+                                outputText.textContent = text;
+                                translatedText.textContent = "Almost Done...";
+                                translateText(text, languageSelect.value).then(function (translated) {
+                                    translatedText.textContent = translated;
+                                });
+
+                            }
+                        });
+                    }
+                }).catch(function (error) {
+                    console.error('Error loading PDF:', error);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
