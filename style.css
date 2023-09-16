@@ -97,7 +97,8 @@ nav{
   font-size: 13px;
 }
 .side_navbar a:hover{
-  background: rgb(212, 177, 210);
+  background: rgb(147, 37, 141);
+  /* background: rgb(212, 177, 210); */
   color: white;
 }
 .side_navbar .active{
