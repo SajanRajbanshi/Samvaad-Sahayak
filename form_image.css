@@ -23,10 +23,22 @@
 
 .buttonSubmit{
     background-color: #ba61b8;
-    color: white;
+    /* color: white;
     width: 120px;
     padding: 10px 18px;
     border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 30px;
+    margin-right: 70px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    cursor: pointer; */
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont;
+    width: 120px;
+    padding: 10px 18px;
+    border-radius: 30px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -34,8 +46,15 @@
     margin-right: 70px;
     margin-bottom: 30px;
     font-size: 12px;
-    cursor: pointer;
+    cursor: pointer;
 }
+
+.buttonSubmit:active{
+    background-color: rgb(147, 37, 141);
+    font-weight: bold;
+}
+
+
 
 .buttondiv{
     display: flex;

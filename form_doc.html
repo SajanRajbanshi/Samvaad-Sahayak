@@ -40,15 +40,8 @@
                 <!-- Change the input type to file -->
                 <input type="file" accept=".pdf" id="pdfFileInput" />
             </div>
-            <div class="buttondiv">
-                <!-- Add a button to trigger text extraction -->
-                <button id="extractButton">
-                    Translate Text
-                </button>
-            </div>
-
             <div class="dropdowndiv">
-                <label class="imagelabel">Enter the language in which you want your text</label>
+                <label class="imagelabel">Targeted Language</label>
                 <div>
                     <select id="languageSelect">
                         <option value='hi'>Hindi</option>
@@ -60,6 +53,12 @@
                     </select>
                 </div>
             </div>
+            <div class="buttondiv">
+                <button id="extractButton" class="buttonSubmit">
+                  Submit
+                </button>
+              </div>
+
 
             <!-- TODO: set width of below two div -->
             <div class="convertedimg">
