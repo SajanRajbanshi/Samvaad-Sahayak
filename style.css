@@ -10,7 +10,7 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: rgb(245, 245, 245);
+  background: white;
 }
 .header{
   display: flex;
@@ -77,9 +77,9 @@ nav{
   padding-bottom: 50px;
 }
 .side_navbar span{
-  color: gray;
+  color: rgb(147, 37, 141);
   margin: 1rem 3rem;
-  font-size: 12px;
+  font-size: 32px;
 }
 .side_navbar a{
   width: 100%;
@@ -311,7 +311,24 @@ td{
     }
 
   }
+
+  ::placeholder{
+    font-size: 1.5rem;
+  }
+
+  option{
+    text-decoration-line: underline;
+  }
+
+  #uploader{
+    margin-left: 5rem;
+  }
+  .filecenter{
+    margin-left: 5rem;
+  }
+
 /* 
+
 
   .borderextract{
    border: 5px solid black; 
