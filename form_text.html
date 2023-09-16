@@ -42,30 +42,35 @@
                 <label class="imagelabel">
                     <h1>Enter your text here</h1>
                 </label>
-                <input type="text" placeholder="enter your text" />
+                <input id="inputText" type="text" placeholder="enter your text" />
             </div>
             <div class="buttondiv">
               <button>
-                <input type="button" value="submit" class="buttonSubmit" />
+                <input id="submitBtn" type="button" value="submit" class="buttonSubmit" />
               </button>
             </div>
 
             <div class="dropdowndiv">
               <label class="imagelabel">Enter the language in which you want your image text converted</label>
               <div>
-                <select>
-                    <option value='Hindi'>Hindi</option>
-                    <option value='Gujarati'>Gujarati</option>
-                    <option value='Marathi'>Marathi</option>
-                    <option value='Bengali'>Bengali</option>
-                    <option value='Tamil'>Tamil</option>
-                    <option value='Telugu'>Telugu</option>
+                <select id="targetLang">
+                    <option value='hi'>Hindi</option>
+                    <option value='gu'>Gujarati</option>
+                    <option value='mr'>Marathi</option>
+                    <option value='bn'>Bengali</option>
+                    <option value='ta'>Tamil</option>
+                    <option value='te'>Telugu</option>
                 </select>
               </div>
-            <!-- </div>
-            <div class="hi">
-                <input type="button " value="submit ">
+            </div>
+            <!-- <div class="hi">
+                <input  type="button " value="submit ">
             </div> -->
+
+            <div class="convertedimg">
+                <h2>Your Translated Text </h2>
+                <pre id="translated-text"></pre>
+            </div>
 
             <div class="history_lists ">
 
@@ -73,6 +78,19 @@
 
         </div>
     </div>
+    <script src="script.js" type="module"></script>
+    <script type="module">
+        import {translateText} from "./script.js";
+        document.getElementById("submitBtn").addEventListener("click", async () => {
+            document.getElementById('translated-text').textContent= "Loading...";
+            var inputText = document.getElementById("inputText").value;
+            var targetLang = document.getElementById("targetLang").value;
+            document.getElementById('translated-text').textContent= await translateText(inputText, targetLang);
+
+
+            
+        });
+    </script>
 </body>
 
 </html>
